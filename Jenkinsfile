@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     registry = "lavish10/endgame"
-    registryCredential = 'dockerhub'
+    registryCredential = 'dockerhub' //id of credentials added in jenkins manually
     dockerImage = ""
   }
 
@@ -42,7 +42,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig") // mykubeconfig - id of kubeconfig added in jenkins
         }
       }
     }
